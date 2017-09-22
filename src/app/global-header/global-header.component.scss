@@ -1,0 +1,8 @@
+@import '../../styles/globals';
+
+$background-color: color( grey );
+
+:host {
+  background-color: $background-color;
+  display: block;
+}
