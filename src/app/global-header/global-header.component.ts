@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GlobalHeaderComponent implements OnInit {
 
+  private logo:string = './assets/logo.svg';
+
   constructor() { }
 
   ngOnInit() {
