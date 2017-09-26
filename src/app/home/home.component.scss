@@ -1,0 +1,13 @@
+@import '../../styles/globals';
+
+.Home-title {
+  @include section-title();
+}
+
+.Home-container {
+  @include section-container();
+}
+
+.Home-link {
+  display: block;
+}

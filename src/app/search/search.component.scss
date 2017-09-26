@@ -1,0 +1,13 @@
+@import '../../styles/globals';
+
+.Search-title {
+  @include section-title();
+}
+
+.Search-container {
+  @include section-container();
+}
+
+.Search-link {
+  display: block;
+}
