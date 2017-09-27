@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  private searchQuery:string;
+
+  constructor( private route:ActivatedRoute ) {
+    this.searchQuery = route.queryParams['value'].q;
+  }
 
   ngOnInit() {
   }

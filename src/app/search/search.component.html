@@ -1,5 +1,18 @@
 <div class="Search">
   <h2 class="Search-title">Search</h2>
   <hr />
-  <div class="Search-container"></div>
+  <div class="Search-container">
+    <div class="container">
+      <div class="row">
+        <div class="col my-auto">
+          <ng-container *ngIf="searchQuery">
+            <p class="my-0 text-left">Results for <strong>{{ searchQuery }}</strong>:</p>
+          </ng-container>
+        </div>
+        <div class="col col-auto">
+            <a class="btn btn-link" routerLink="">< Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

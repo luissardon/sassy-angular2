@@ -12,10 +12,6 @@ const appRoutes: Routes = [
 ]
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    SearchComponent
-  ],
   imports: [
     RouterModule.forRoot( appRoutes, { useHash: false } )
   ],
