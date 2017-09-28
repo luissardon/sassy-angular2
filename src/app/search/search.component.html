@@ -5,13 +5,65 @@
     <div class="container">
       <div class="row">
         <div class="col my-auto">
-          <ng-container *ngIf="searchQuery">
-            <p class="my-0 text-left">Results for <strong>{{ searchQuery }}</strong>:</p>
+          <ng-container *ngIf="searchTerm">
+            <p class="my-0 text-left">Results for <strong>{{ searchTerm }}</strong>:</p>
           </ng-container>
         </div>
         <div class="col col-auto">
             <a class="btn btn-link" routerLink="">< Home</a>
         </div>
+      </div>
+
+      <br>
+
+      <div class="card-columns">
+        <ng-container *ngIf="characters?.length > 0">
+          <div class="card" *ngFor="let character of characters">
+            <img class="card-img-top" [src]="getThumbnail( character )" alt="Card image cap">
+
+            <div class="card-body">
+              <h4 class="card-title">{{ character.name }}</h4>
+              <p class="card-text text-secondary"><small>{{ character.description }}</small></p>
+            </div>
+
+            <ul class="list-group list-group-flush ">
+              <li class="list-group-item d-flex justify-content-between" *ngIf="character.comics.available > 0">
+                <small class="my-auto">Comics appearances:</small>
+                <div>
+                  <span class="badge badge-pill badge-dark">{{ character.comics.available }}</span>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between" *ngIf="character.events.available > 0">
+                <small class="my-auto">Events appearances:</small>
+                <div>
+                  <span class="badge badge-pill badge-dark">{{ character.events.available }}</span>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between" *ngIf="character.series.available > 0">
+                <small class="my-auto">Series appearances:</small>
+                <div>
+                  <span class="badge badge-pill badge-dark">{{ character.series.available }}</span>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between" *ngIf="character.stories.available > 0">
+                <small class="my-auto">Stories appearances:</small>
+                <div>
+                  <span class="badge badge-pill badge-dark">{{ character.stories.available }}</span>
+                </div>
+              </li>
+            </ul>
+
+            <ng-container *ngIf="character.urls?.length > 0">
+              <div class="card-body text-left">
+                <a [href]="url.url" class="card-link text-uppercase" *ngFor="let url of character.urls">{{ url.type }}</a>
+              </div>
+            </ng-container>
+
+            <div class="card-footer text-left">
+              <small class="text-muted">Last update: {{ character.modified | date }}</small>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
